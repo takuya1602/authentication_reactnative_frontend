@@ -1,16 +1,16 @@
 import { View, Text, Button } from "react-native"
 import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { getUserInfo } from "../../store/actions/auth";
 import { logout } from "../../store/actions/auth";
+import { getUserInfo } from "../../store/actions/user";
 
 const UserInfoScreen = ({ navigation }) => {
     console.log("UserInfoScreen");
     const dispatch = useDispatch();
 
     const [username, email, token] = useSelector((state) => [
-        state.auth.username,
-        state.auth.email,
+        state.user.username,
+        state.user.email,
         state.auth.token,
     ]);
 

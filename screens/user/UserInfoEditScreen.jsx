@@ -1,14 +1,14 @@
 import { View, TextInput, Button } from "react-native";
 import { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { editUserInfo } from "../../store/actions/auth";
+import { editUserInfo } from "../../store/actions/user";
 import tw from "twrnc";
 
 const UserInfoEditScreen = ({ navigation }) => {
     const dispatch = useDispatch();
     const [username, email, token] = useSelector((state) => [
-        state.auth.username,
-        state.auth.email,
+        state.user.username,
+        state.user.email,
         state.auth.token,
     ])
     const [editedUsername, setEditedUsername] = useState(username);

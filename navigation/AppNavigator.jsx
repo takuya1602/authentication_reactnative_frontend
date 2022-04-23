@@ -2,7 +2,6 @@ import { NavigationContainer } from "@react-navigation/native";
 import { SafeArea } from "../components/SafeArea";
 import SplashScreen from "../screens/common/SplashScreen";
 import AuthNavigator from "./AuthNavigator";
-import PostNavigator from "./PostNavigator";
 import UserInfoNavigator from "./UserInfoNavigator";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react"
@@ -15,11 +14,11 @@ const AppNavigator = () => {
         state.auth.authLoading,
         state.auth.token,
     ]);
+    console.log(token);
 
     useEffect(() => {
         dispatch(getToken());
     }, [dispatch]);
-
 
     if (authLoading) {
         console.log("loading")

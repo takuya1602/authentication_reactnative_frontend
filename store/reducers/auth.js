@@ -14,23 +14,12 @@ import {
 
     SET_AUTH_LOADING,
     REMOVE_AUTH_LOADING,
-
-    GET_USER_INFO_SUCCESS,
-    GET_USER_INFO_FAIL,
-
-    EDIT_USER_INFO_SUCCESS,
-    EDIT_USER_INFO_FAIL,
-    SET_USER_LOADING,
-    REMOVE_USER_LOADING,
 } from "../actions/types"
 
 const initialState = {
     authLoading: false,
-    userLoading: false,
     token: null,
-    username: null,
-    email: null,
-}
+};
 
 const authReducer = (state = initialState, action) => {
     const { type, payload } = action;
@@ -85,36 +74,6 @@ const authReducer = (state = initialState, action) => {
             return {
                 ...state,
                 authLoading: false,
-            }
-        case SET_USER_LOADING:
-            return {
-                ...state,
-                userLoading: true,
-            }
-        case GET_USER_INFO_SUCCESS:
-            return {
-                ...state,
-                username: payload.username,
-                email: payload.email,
-            }
-        case GET_USER_INFO_FAIL:
-            return {
-                ...state,
-            }
-        case EDIT_USER_INFO_SUCCESS:
-            return {
-                ...state,
-                username: payload.username,
-                email: payload.email,
-            }
-        case EDIT_USER_INFO_FAIL:
-            return {
-                ...state,
-            }
-        case REMOVE_USER_LOADING:
-            return {
-                ...state,
-                userLoading: false,
             }
         default:
             return state
